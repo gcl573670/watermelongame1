@@ -1,0 +1,111 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --font-sans: var(--app-font-sans);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+}
+
+:root {
+  --background: 220 20% 10%;
+  --foreground: 210 30% 92%;
+  --border: 220 15% 20%;
+  --input: 220 15% 18%;
+  --ring: 142 76% 46%;
+  --card: 220 18% 13%;
+  --card-foreground: 210 30% 92%;
+  --primary: 142 76% 46%;
+  --primary-foreground: 220 20% 10%;
+  --secondary: 220 15% 20%;
+  --secondary-foreground: 210 30% 92%;
+  --muted: 220 15% 18%;
+  --muted-foreground: 215 20% 55%;
+  --accent: 262 83% 68%;
+  --accent-foreground: 210 30% 92%;
+  --destructive: 0 85% 60%;
+  --app-font-sans: 'Inter', system-ui, sans-serif;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--app-font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Ad zone styling */
+.ad-zone {
+  background-color: hsl(220 18% 13%);
+  border: 1px solid hsl(220 15% 22%);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ad-zone::before {
+  content: "Advertisement";
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: hsl(215 20% 40%);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Game canvas cursor */
+#game-canvas {
+  cursor: crosshair;
+  touch-action: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(220 20% 10%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(220 15% 28%);
+  border-radius: 3px;
+}
